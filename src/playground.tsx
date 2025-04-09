@@ -14,6 +14,8 @@ import { allScriptsFromDump } from "@midscene/visualizer";
 import { Button, Form, message } from "antd";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import './style.css'
+
 export interface PlaygroundProps {
 	getAgent: (forceSameTabNavigation?: boolean) => any | null;
 	showContextPreview?: boolean;
@@ -274,7 +276,7 @@ export function BrowserExtensionPlayground({
 				<div ref={runResultRef} />
 
 				<Button
-					style={{ position: "relative", right: "2px", top: "10px" }}
+					className="top-4 relative"
 					onClick={() => {
 						if (isPaused) {
 							chrome.tts.resume();

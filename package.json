@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.1",
+    "@midscene/core": "latest",
     "@midscene/visualizer": "latest",
     "@midscene/web": "latest",
-    "@midscene/core": "latest",
     "antd": "^5.21.6",
     "dayjs": "1.11.11",
     "react": "^18.3.1",
@@ -25,12 +25,14 @@
     "@rsbuild/plugin-less": "^1.1.1",
     "@rsbuild/plugin-node-polyfill": "1.3.0",
     "@rsbuild/plugin-react": "^1.1.1",
+    "@tailwindcss/postcss": "^4.1.3",
     "@types/chrome": "0.0.279",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "archiver": "^6.0.0",
     "less": "^4.2.0",
-    "typescript": "^5.8.2",
-    "archiver": "^6.0.0"
+    "tailwindcss": "^4.1.3",
+    "typescript": "^5.8.2"
   },
   "packageManager": "pnpm@9.13.0+sha512.beb9e2a803db336c10c9af682b58ad7181ca0fbd0d4119f2b33d5f2582e96d6c0d93c85b23869295b765170fbdaa92890c0da6ada457415039769edf3c959efe"
 }
