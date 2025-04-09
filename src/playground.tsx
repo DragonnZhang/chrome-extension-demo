@@ -14,7 +14,8 @@ import { allScriptsFromDump } from "@midscene/visualizer";
 import { Button, Form, message } from "antd";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import './style.css'
+import "./style.css";
+import usePage from "./hooks/usePage";
 
 export interface PlaygroundProps {
 	getAgent: (forceSameTabNavigation?: boolean) => any | null;
@@ -235,14 +236,38 @@ export function BrowserExtensionPlayground({
 	// Get the currently selected type
 	const selectedType = Form.useWatch("type", form);
 
+	const handleGuide = async () => {
+		const activeAgent = getAgent(forceSameTabNavigation);
+		const res = await activeAgent?.aiQuery("总结这个网页");
+		setResult(Object.assign(blankResult, { result: res }));
+	};
+
+	const { currentPage, totalPages } = usePage();
+
 	return (
 		<div className="playground-container vertical-mode">
 			<Form form={form} onFinish={handleRun}>
 				<div className="playground-form-container">
-					<div className="form-part">
-						<h3>In-Browser Request Config</h3>
+					<div className="hidden">
 						<EnvConfig />
 					</div>
+
+					<Button
+						className="w-[90%] h-4 mx-[5%] my-4 relative"
+						onClick={handleGuide}
+					>
+						Guide
+					</Button>
+
+					<div className="bg-gray-100 w-[90%] mx-[5%] rounded-lg px-4 py-2">
+						Pages: {currentPage} / {totalPages}
+					</div>
+					<Button
+						className="w-[90%] h-4 mx-[5%] my-4 relative"
+						onClick={handleGuide}
+					>
+						Guide
+					</Button>
 
 					<ContextPreview
 						uiContextPreview={uiContextPreview}
