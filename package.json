@@ -14,6 +14,8 @@
     "@midscene/visualizer": "latest",
     "@midscene/web": "latest",
     "antd": "^5.21.6",
+    "antd-style": "^3.7.1",
+    "clsx": "^2.1.1",
     "dayjs": "1.11.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
