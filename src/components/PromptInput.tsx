@@ -89,22 +89,22 @@ export const PromptInput: React.FC<PromptInputProps> = ({
     if (dryMode) {
       return selectedType === 'aiAction' ? (
         <Tooltip title="Start executing until some interaction actions need to be performed. You can see the process of planning and locating.">
-          {runButton('Dry Run')}
+          {runButton('模拟运行')}
         </Tooltip>
       ) : (
-        runButton('Run')
+        runButton('运行')
       );
     }
 
     if (stoppable) {
       return (
         <Button icon={<BorderOutlined />} onClick={onStop}>
-          Stop
+          停止
         </Button>
       );
     }
 
-    return runButton('Run');
+    return runButton('运行');
   }, [
     dryMode,
     loading,

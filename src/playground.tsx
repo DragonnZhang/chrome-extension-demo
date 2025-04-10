@@ -1,4 +1,3 @@
-import { ReadOutlined } from '@ant-design/icons';
 import type { UIContext } from '@midscene/core';
 import { overrideAIConfig } from '@midscene/core/env';
 import {
@@ -17,6 +16,7 @@ import { PromptInput } from './components/PromptInput';
 import { usePage } from './hooks';
 
 import './styles/global.css';
+import { BookOpenText } from 'lucide-react';
 
 export interface PlaygroundProps {
   getAgent: (forceSameTabNavigation?: boolean) => any | null;
@@ -244,11 +244,12 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
     setLoading(true);
 
     // 如果是总结网页，标记导航按钮可以显示
-    if (query === '总结这个网页') {
+    if (query === '介绍一下这是个什么网站，包括标题，以及有哪些可执行的操作') {
       setShowNavigationButtons(false); // 先重置状态，防止重复点击
     }
 
     const res = await activeAgent?.aiQuery(query);
+    speak(JSON.stringify(res));
     setResult(Object.assign(blankResult, { result: res }));
 
     try {
@@ -258,7 +259,7 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
     }
 
     // 如果是总结网页，导航完成后显示按钮
-    if (query === '总结这个网页') {
+    if (query === '介绍一下这是个什么网站，包括标题，以及有哪些可执行的操作') {
       setShowNavigationButtons(true);
     }
 
@@ -272,6 +273,7 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
 
     await activeAgent?.aiAction(query);
     setResult(Object.assign(blankResult, { result: '操作已成功执行' }));
+    speak('操作已成功执行');
 
     try {
       await activeAgent?.page?.destroy();
@@ -295,9 +297,9 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
 
           <div className="mb-4 rounded-lg bg-sky-50 px-4 py-3 shadow-sm">
             <div className="mb-1 flex items-center justify-between">
-              <span className="font-medium text-gray-600">
-                <ReadOutlined className="mr-2" />
-                视口信息
+              <span className="font-medium text-gray-600 text-base flex items-center gap-2">
+                <BookOpenText className="h-[20px] mt-0.5 text-blue-600" />
+                <p>视口信息</p>
               </span>
               <span className="text-gray-800">
                 当前第{' '}
@@ -317,7 +319,7 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
 
           <Button
             className="relative mx-[5%] mt-2 mb-4 h-6 w-[90%]"
-            onClick={() => handleQuery('总结这个网页')}
+            onClick={() => handleQuery('介绍一下这是个什么网站，包括标题，以及有哪些可执行的操作')}
             type="primary"
             size="large"
             loading={loading && !showNavigationButtons}

@@ -37,8 +37,8 @@ export const requestPlaygroundServer = async (
 
 // Get action name based on type
 export const actionNameForType = (type: string) => {
-  if (type === 'aiAction') return 'Action';
-  if (type === 'aiQuery') return 'Query';
+  if (type === 'aiAction') return '操作';
+  if (type === 'aiQuery') return '查询';
   if (type === 'aiAssert') return 'Assert';
   return type;
 };
