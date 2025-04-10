@@ -266,6 +266,23 @@ export function BrowserExtensionPlayground({
     setLoading(false);
   };
 
+  const handleAction = async (query: string) => {
+    const activeAgent = getAgent(forceSameTabNavigation);
+    setLoading(true);
+
+    await activeAgent?.aiAction(query);
+    setResult(Object.assign(blankResult, { result: '操作已成功执行' }));
+
+    try {
+      await activeAgent?.page?.destroy();
+    } catch (e) {
+      console.error(e);
+    }
+
+    currentAgentRef.current = null;
+    setLoading(false);
+  };
+
   const { currentPage, totalPages } = usePage();
 
   return (
@@ -333,11 +350,11 @@ export function BrowserExtensionPlayground({
             </MagicButton>
             <MagicButton
               className="relative mx-[5%] mt-2 mb-4 h-4 w-[90%]"
-              onClick={() => handleQuery('提取网页中的关键信息')}
+              onClick={() => handleAction('复制这篇文档的链接')}
               type="primary"
               size="large"
             >
-              提取关键信息
+              复制文档链接
             </MagicButton>
           </div>
 
