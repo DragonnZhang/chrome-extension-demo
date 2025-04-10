@@ -1,26 +1,26 @@
 {
-	"name": "声播 AUI",
-	"description": "Open-source SDK for automating web pages using natural language through AI.",
-	"version": "0.47",
-	"manifest_version": 3,
-	"permissions": [
-		"activeTab",
-		"tabs",
-		"sidePanel",
-		"debugger",
-		"tts",
-		"scripting"
-	],
-	"incognito": "split",
-	"host_permissions": ["<all_urls>"],
-	"action": {
-		"default_icon": "icon128.png",
-		"default_title": "Midscene.js"
-	},
-	"side_panel": {
-		"default_path": "./index.html"
-	},
-	"icons": {
-		"128": "icon128.png"
-	}
+  "name": "声播 AUI",
+  "description": "Open-source SDK for automating web pages using natural language through AI.",
+  "version": "0.47",
+  "manifest_version": 3,
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "sidePanel",
+    "debugger",
+    "tts",
+    "scripting"
+  ],
+  "incognito": "split",
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_icon": "sound.png",
+    "default_title": "Midscene.js"
+  },
+  "side_panel": {
+    "default_path": "./index.html"
+  },
+  "icons": {
+    "128": "sound.png"
+  }
 }
