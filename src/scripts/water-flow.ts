@@ -29,7 +29,7 @@ const midsceneWaterFlowAnimation = {
     this.enable(); // show water flow animation
     this.registerSelfCleaning();
     const existingPointer = document.querySelector(
-      `div[${this.mousePointerAttribute}]`,
+      `div[${this.mousePointerAttribute}]`
     ) as HTMLDivElement | null;
 
     // Clear any existing timeouts to prevent race conditions
@@ -37,7 +37,7 @@ const midsceneWaterFlowAnimation = {
       const timeoutId = Number(existingPointer.getAttribute('data-timeout-id'));
       if (timeoutId) clearTimeout(timeoutId);
       const removeTimeoutId = Number(
-        existingPointer.getAttribute('data-remove-timeout-id'),
+        existingPointer.getAttribute('data-remove-timeout-id')
       );
       if (removeTimeoutId) clearTimeout(removeTimeoutId);
     }
@@ -86,7 +86,7 @@ const midsceneWaterFlowAnimation = {
   hideMousePointer() {
     this.registerSelfCleaning();
     const pointer = document.querySelector(
-      `div[${this.mousePointerAttribute}]`,
+      `div[${this.mousePointerAttribute}]`
     ) as HTMLDivElement | null;
     if (pointer) {
       document.body.removeChild(pointer);
@@ -175,7 +175,7 @@ const midsceneWaterFlowAnimation = {
 
     // remove all mouse pointers
     const mousePointers = document.querySelectorAll(
-      `div[${this.mousePointerAttribute}]`,
+      `div[${this.mousePointerAttribute}]`
     );
     mousePointers.forEach((element) => {
       document.body.removeChild(element);

@@ -4,7 +4,9 @@ import clsx from 'clsx';
 
 const useStyle = createStyles(({ prefixCls, css }) => ({
   linearGradientButton: css`
-    &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
+    &.${prefixCls}-btn-primary:not([disabled]):not(
+        .${prefixCls}-btn-dangerous
+      ) {
       > span {
         position: relative;
       }

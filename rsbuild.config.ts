@@ -1,8 +1,8 @@
-import path from 'node:path';
 import { defineConfig } from '@rsbuild/core';
 import { pluginLess } from '@rsbuild/plugin-less';
 import { pluginNodePolyfill } from '@rsbuild/plugin-node-polyfill';
 import { pluginReact } from '@rsbuild/plugin-react';
+import path from 'node:path';
 
 export default defineConfig({
   environments: {
@@ -53,10 +53,7 @@ export default defineConfig({
     copy: [
       { from: './static', to: './' },
       {
-        from: path.resolve(
-          __dirname,
-          './src/scripts/iife-script',
-        ),
+        from: path.resolve(__dirname, './src/scripts/iife-script'),
         to: 'scripts',
       },
     ],
@@ -66,7 +63,7 @@ export default defineConfig({
       async_hooks: path.join(__dirname, './src/scripts/blank_polyfill.ts'),
       'node:async_hooks': path.join(
         __dirname,
-        './src/scripts/blank_polyfill.ts',
+        './src/scripts/blank_polyfill.ts'
       ),
       react: path.resolve(__dirname, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
