@@ -4,7 +4,7 @@ import {
   ChromeExtensionProxyPage,
   ChromeExtensionProxyPageAgent,
 } from '@midscene/web/chrome-extension';
-import { BrowserExtensionPlayground } from './playground';
+import BrowserExtensionPlayground from './playground';
 
 // remember to destroy the agent when the tab is destroyed: agent.page.destroy()
 const extensionAgentForTab = (forceSameTabNavigation = true) => {

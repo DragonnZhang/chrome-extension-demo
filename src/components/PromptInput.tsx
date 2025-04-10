@@ -60,7 +60,7 @@ export const PromptInput: React.FC<PromptInputProps> = ({
         e.stopPropagation();
       }
     },
-    [handleRunWithHistory]
+    [handleRunWithHistory],
   );
 
   // Handle settings hover state
