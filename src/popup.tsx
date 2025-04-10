@@ -12,13 +12,11 @@ const extensionAgentForTab = (forceSameTabNavigation = true) => {
   return new ChromeExtensionProxyPageAgent(page);
 };
 
-export function PlaygroundPopup() {
-  return (
-    <BrowserExtensionPlayground
-      getAgent={(forceSameTabNavigation?: boolean) => {
-        return extensionAgentForTab(forceSameTabNavigation);
-      }}
-      showContextPreview={false}
-    />
-  );
-}
+export const PlaygroundPopup = () => (
+  <BrowserExtensionPlayground
+    getAgent={(forceSameTabNavigation?: boolean) => {
+      return extensionAgentForTab(forceSameTabNavigation);
+    }}
+    showContextPreview={false}
+  />
+);

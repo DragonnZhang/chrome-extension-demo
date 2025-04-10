@@ -7,8 +7,8 @@ import {
 import { Button, Form, Input, Radio, Tooltip } from 'antd';
 import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import type { RunType, ServiceModeType } from './playground-types';
-import { actionNameForType, getPlaceholderForType } from './playground-utils';
+import type { RunType, ServiceModeType } from '../types';
+import { actionNameForType, getPlaceholderForType } from '../utils';
 
 const { TextArea } = Input;
 

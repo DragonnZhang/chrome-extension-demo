@@ -14,8 +14,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ReadOutlined } from '@ant-design/icons';
 import MagicButton from './components/MagicButton';
 import { PromptInput } from './components/PromptInput';
-import usePage from './hooks/usePage';
-import './style.css';
+import { usePage } from './hooks';
+
+import './styles/global.css';
 
 export interface PlaygroundProps {
   getAgent: (forceSameTabNavigation?: boolean) => any | null;
@@ -77,7 +78,7 @@ export function BrowserExtensionPlayground({
   const [form] = Form.useForm();
   const { config } = useEnvConfig();
   const forceSameTabNavigation = useEnvConfig(
-    (state) => state.forceSameTabNavigation
+    (state) => state.forceSameTabNavigation,
   );
 
   // References
