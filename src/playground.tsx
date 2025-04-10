@@ -10,8 +10,8 @@ import {
 } from '@midscene/visualizer';
 import { Button, Form, Progress, message } from 'antd';
 import { useCallback, useEffect, useRef, useState } from 'react';
-
 import { ReadOutlined } from '@ant-design/icons';
+
 import MagicButton from './components/MagicButton';
 import { PromptInput } from './components/PromptInput';
 import { usePage } from './hooks';
@@ -56,11 +56,11 @@ const blankResult = {
 };
 
 // Browser Extension Playground Component
-export function BrowserExtensionPlayground({
+const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
   getAgent,
   showContextPreview = true,
   dryMode = false,
-}: PlaygroundProps) {
+}) => {
   // State management
   const [uiContextPreview, setUiContextPreview] = useState<
     UIContext | undefined
@@ -374,4 +374,6 @@ export function BrowserExtensionPlayground({
       </div>
     </div>
   );
-}
+};
+
+export default BrowserExtensionPlayground;

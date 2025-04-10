@@ -18,7 +18,7 @@ export default function useChromeWindowScroll() {
               if (results?.[0]?.result !== undefined) {
                 callback(results[0].result as number);
               }
-            }
+            },
           );
         }
       });

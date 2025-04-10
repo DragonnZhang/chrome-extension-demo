@@ -14,7 +14,7 @@ export interface PlaygroundResult {
 // Playground组件的props类型
 export interface PlaygroundProps {
   getAgent: (
-    forceSameTabNavigation?: boolean
+    forceSameTabNavigation?: boolean,
   ) => StaticPageAgent | ChromeExtensionProxyPageAgent | null;
   hideLogo?: boolean;
   showContextPreview?: boolean;

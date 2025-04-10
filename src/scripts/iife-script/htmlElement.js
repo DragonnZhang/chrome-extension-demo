@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var midscene_element_inspector = (() => {
   var __create = Object.create;
   var __defProp = Object.defineProperty;
@@ -35,7 +35,7 @@ var midscene_element_inspector = (() => {
         mod ||
           (0, cb[__getOwnPropNames(cb)[0]])(
             (mod = { exports: {} }).exports,
-            mod
+            mod,
           ),
         mod.exports
       );
@@ -45,7 +45,7 @@ var midscene_element_inspector = (() => {
       __defProp(target, name, { get: all[name], enumerable: true });
   };
   var __copyProps = (to, from, except, desc) => {
-    if ((from && typeof from === 'object') || typeof from === 'function') {
+    if ((from && typeof from === "object") || typeof from === "function") {
       for (let key of __getOwnPropNames(from))
         if (!__hasOwnProp.call(to, key) && key !== except)
           __defProp(to, key, {
@@ -64,41 +64,41 @@ var midscene_element_inspector = (() => {
       // compatible transform (i.e. "__esModule" has not been set), then set
       // "default" to the CommonJS "module.exports" for node compatibility.
       isNodeMode || !mod || !mod.__esModule
-        ? __defProp(target, 'default', { value: mod, enumerable: true })
+        ? __defProp(target, "default", { value: mod, enumerable: true })
         : target,
-      mod
+      mod,
     )
   );
   var __toCommonJS = (mod) =>
-    __copyProps(__defProp({}, '__esModule', { value: true }), mod);
+    __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // resolve-false:/empty-stub
   var require_empty_stub = __commonJS({
-    'resolve-false:/empty-stub'(exports, module) {
-      'use strict';
+    "resolve-false:/empty-stub"(exports, module) {
+      "use strict";
       module.exports = {};
     },
   });
 
   // ../../node_modules/.pnpm/js-sha256@0.11.0/node_modules/js-sha256/src/sha256.js
   var require_sha256 = __commonJS({
-    '../../node_modules/.pnpm/js-sha256@0.11.0/node_modules/js-sha256/src/sha256.js'(
+    "../../node_modules/.pnpm/js-sha256@0.11.0/node_modules/js-sha256/src/sha256.js"(
       exports,
-      module
+      module,
     ) {
-      'use strict';
+      "use strict";
       (function () {
-        'use strict';
-        var ERROR = 'input is invalid type';
-        var WINDOW = typeof window === 'object';
+        "use strict";
+        var ERROR = "input is invalid type";
+        var WINDOW = typeof window === "object";
         var root = WINDOW ? window : {};
         if (root.JS_SHA256_NO_WINDOW) {
           WINDOW = false;
         }
-        var WEB_WORKER = !WINDOW && typeof self === 'object';
+        var WEB_WORKER = !WINDOW && typeof self === "object";
         var NODE_JS =
           !root.JS_SHA256_NO_NODE_JS &&
-          typeof process === 'object' &&
+          typeof process === "object" &&
           process.versions &&
           process.versions.node;
         if (NODE_JS) {
@@ -108,12 +108,12 @@ var midscene_element_inspector = (() => {
         }
         var COMMON_JS =
           !root.JS_SHA256_NO_COMMON_JS &&
-          typeof module === 'object' &&
+          typeof module === "object" &&
           module.exports;
-        var AMD = typeof define === 'function' && define.amd;
+        var AMD = typeof define === "function" && define.amd;
         var ARRAY_BUFFER =
-          !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== 'undefined';
-        var HEX_CHARS = '0123456789abcdef'.split('');
+          !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== "undefined";
+        var HEX_CHARS = "0123456789abcdef".split("");
         var EXTRA = [-2147483648, 8388608, 32768, 128];
         var SHIFT = [24, 16, 8, 0];
         var K = [
@@ -130,11 +130,11 @@ var midscene_element_inspector = (() => {
           1955562222, 2024104815, 2227730452, 2361852424, 2428436474,
           2756734187, 3204031479, 3329325298,
         ];
-        var OUTPUT_TYPES = ['hex', 'array', 'digest', 'arrayBuffer'];
+        var OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"];
         var blocks = [];
         if (root.JS_SHA256_NO_NODE_JS || !Array.isArray) {
           Array.isArray = function (obj) {
-            return Object.prototype.toString.call(obj) === '[object Array]';
+            return Object.prototype.toString.call(obj) === "[object Array]";
           };
         }
         if (
@@ -143,7 +143,7 @@ var midscene_element_inspector = (() => {
         ) {
           ArrayBuffer.isView = function (obj) {
             return (
-              typeof obj === 'object' &&
+              typeof obj === "object" &&
               obj.buffer &&
               obj.buffer.constructor === ArrayBuffer
             );
@@ -155,7 +155,7 @@ var midscene_element_inspector = (() => {
           };
         };
         var createMethod = function (is224) {
-          var method = createOutputMethod('hex', is224);
+          var method = createOutputMethod("hex", is224);
           if (NODE_JS) {
             method = nodeWrap(method, is224);
           }
@@ -174,7 +174,7 @@ var midscene_element_inspector = (() => {
         var nodeWrap = function (method, is224) {
           var crypto = require_empty_stub();
           var Buffer2 = require_empty_stub().Buffer;
-          var algorithm = is224 ? 'sha224' : 'sha256';
+          var algorithm = is224 ? "sha224" : "sha256";
           var bufferFrom;
           if (Buffer2.from && !root.JS_SHA256_NO_BUFFER_FROM) {
             bufferFrom = Buffer2.from;
@@ -184,11 +184,11 @@ var midscene_element_inspector = (() => {
             };
           }
           var nodeMethod = function (message) {
-            if (typeof message === 'string') {
+            if (typeof message === "string") {
               return crypto
                 .createHash(algorithm)
-                .update(message, 'utf8')
-                .digest('hex');
+                .update(message, "utf8")
+                .digest("hex");
             } else {
               if (message === null || message === void 0) {
                 throw new Error(ERROR);
@@ -204,7 +204,7 @@ var midscene_element_inspector = (() => {
               return crypto
                 .createHash(algorithm)
                 .update(bufferFrom(message))
-                .digest('hex');
+                .digest("hex");
             } else {
               return method(message);
             }
@@ -219,7 +219,7 @@ var midscene_element_inspector = (() => {
           };
         };
         var createHmacMethod = function (is224) {
-          var method = createHmacOutputMethod('hex', is224);
+          var method = createHmacOutputMethod("hex", is224);
           method.create = function (key) {
             return new HmacSha256(key, is224);
           };
@@ -286,8 +286,8 @@ var midscene_element_inspector = (() => {
           }
           var notString,
             type = typeof message;
-          if (type !== 'string') {
-            if (type === 'object') {
+          if (type !== "string") {
+            if (type === "object") {
               if (message === null) {
                 throw new Error(ERROR);
               } else if (ARRAY_BUFFER && message.constructor === ArrayBuffer) {
@@ -663,7 +663,7 @@ var midscene_element_inspector = (() => {
               (h7 >>> 24) & 255,
               (h7 >>> 16) & 255,
               (h7 >>> 8) & 255,
-              h7 & 255
+              h7 & 255,
             );
           }
           return arr;
@@ -688,7 +688,7 @@ var midscene_element_inspector = (() => {
         function HmacSha256(key, is224, sharedMemory) {
           var i,
             type = typeof key;
-          if (type === 'string') {
+          if (type === "string") {
             var bytes = [],
               length = key.length,
               index = 0,
@@ -716,7 +716,7 @@ var midscene_element_inspector = (() => {
             }
             key = bytes;
           } else {
-            if (type === 'object') {
+            if (type === "object") {
               if (key === null) {
                 throw new Error(ERROR);
               } else if (ARRAY_BUFFER && key.constructor === ArrayBuffer) {
@@ -792,39 +792,39 @@ var midscene_element_inspector = (() => {
 
   // src/extractor/tree.ts
   function truncateText(text, maxLength = 150) {
-    if (typeof text === 'undefined') {
-      return '';
+    if (typeof text === "undefined") {
+      return "";
     }
-    if (typeof text === 'object') {
+    if (typeof text === "object") {
       text = JSON.stringify(text);
     }
-    if (typeof text === 'number') {
+    if (typeof text === "number") {
       return text.toString();
     }
-    if (typeof text === 'string' && text.length > maxLength) {
+    if (typeof text === "string" && text.length > maxLength) {
       return `${text.slice(0, maxLength)}...`;
     }
-    if (typeof text === 'string') {
+    if (typeof text === "string") {
       return text.trim();
     }
-    return '';
+    return "";
   }
   function trimAttributes(attributes, truncateTextLength) {
     const tailorAttributes = Object.keys(attributes).reduce(
       (res, currentKey) => {
         const attributeVal = attributes[currentKey];
         if (
-          currentKey === 'style' ||
-          currentKey === 'src' ||
-          currentKey === 'htmlTagName' ||
-          currentKey === 'nodeType'
+          currentKey === "style" ||
+          currentKey === "src" ||
+          currentKey === "htmlTagName" ||
+          currentKey === "nodeType"
         ) {
           return res;
         }
         res[currentKey] = truncateText(attributeVal, truncateTextLength);
         return res;
       },
-      {}
+      {},
     );
     return tailorAttributes;
   }
@@ -832,24 +832,24 @@ var midscene_element_inspector = (() => {
   function descriptionOfTree(
     tree,
     truncateTextLength,
-    filterNonTextContent = false
+    filterNonTextContent = false,
   ) {
     const attributesString = (kv) => {
       return Object.entries(kv)
         .map(
           ([key, value]) =>
-            `${key}="${truncateText(value, truncateTextLength)}"`
+            `${key}="${truncateText(value, truncateTextLength)}"`,
         )
-        .join(' ');
+        .join(" ");
     };
     function buildContentTree(node, indent = 0) {
       var _a;
-      let before = '';
-      let contentWithIndent = '';
-      let after = '';
+      let before = "";
+      let contentWithIndent = "";
+      let after = "";
       let emptyNode = true;
-      const indentStr = '  '.repeat(indent);
-      let children = '';
+      const indentStr = "  ".repeat(indent);
+      let children = "";
       for (let i = 0; i < (node.children || []).length; i++) {
         const childContent = buildContentTree(node.children[i], indent + 1);
         if (childContent) {
@@ -868,15 +868,15 @@ ${childContent}`;
         if ((_a = node.node.attributes) == null ? void 0 : _a.htmlTagName) {
           nodeTypeString = node.node.attributes.htmlTagName.replace(
             /[<>]/g,
-            ''
+            "",
           );
         } else {
           nodeTypeString = node.node.attributes.nodeType
-            .replace(/\sNode$/, '')
+            .replace(/\sNode$/, "")
             .toLowerCase();
         }
         const markerId = node.node.indexId;
-        const markerIdString = markerId ? `markerId="${markerId}"` : '';
+        const markerIdString = markerId ? `markerId="${markerId}"` : "";
         const rectAttribute = node.node.rect
           ? {
               left: node.node.rect.left,
@@ -890,27 +890,27 @@ ${childContent}`;
         contentWithIndent = content
           ? `
 ${indentStr}  ${content}`
-          : '';
+          : "";
         after = `</${nodeTypeString}>`;
       } else if (!filterNonTextContent) {
-        if (!children.trim().startsWith('<>')) {
-          before = '<>';
-          contentWithIndent = '';
-          after = '</>';
+        if (!children.trim().startsWith("<>")) {
+          before = "<>";
+          contentWithIndent = "";
+          after = "</>";
         }
       }
       if (emptyNode && !children.trim()) {
-        return '';
+        return "";
       }
       const result2 = `${indentStr}${before}${contentWithIndent}${children}
 ${indentStr}${after}`;
       if (result2.trim()) {
         return result2;
       }
-      return '';
+      return "";
     }
     const result = buildContentTree(tree);
-    return result.replace(/^\s*\n/gm, '');
+    return result.replace(/^\s*\n/gm, "");
   }
   function treeToList(tree) {
     const result = [];
@@ -946,23 +946,23 @@ ${indentStr}${after}`;
   function isFormElement(node) {
     return (
       node instanceof HTMLElement &&
-      (node.tagName.toLowerCase() === 'input' ||
-        node.tagName.toLowerCase() === 'textarea' ||
-        node.tagName.toLowerCase() === 'select' ||
-        node.tagName.toLowerCase() === 'option')
+      (node.tagName.toLowerCase() === "input" ||
+        node.tagName.toLowerCase() === "textarea" ||
+        node.tagName.toLowerCase() === "select" ||
+        node.tagName.toLowerCase() === "option")
     );
   }
   function isButtonElement(node) {
     return (
-      node instanceof HTMLElement && node.tagName.toLowerCase() === 'button'
+      node instanceof HTMLElement && node.tagName.toLowerCase() === "button"
     );
   }
   function isImgElement(node) {
     if (!includeBaseElement(node) && node instanceof Element) {
       const computedStyle = window.getComputedStyle(node);
       const backgroundImage =
-        computedStyle.getPropertyValue('background-image');
-      if (backgroundImage !== 'none') {
+        computedStyle.getPropertyValue("background-image");
+      if (backgroundImage !== "none") {
         return true;
       }
     }
@@ -970,20 +970,20 @@ ${indentStr}${after}`;
       return true;
     }
     return (
-      (node instanceof HTMLElement && node.tagName.toLowerCase() === 'img') ||
-      (node instanceof SVGElement && node.tagName.toLowerCase() === 'svg')
+      (node instanceof HTMLElement && node.tagName.toLowerCase() === "img") ||
+      (node instanceof SVGElement && node.tagName.toLowerCase() === "svg")
     );
   }
   function isIconfont(node) {
     if (node instanceof Element) {
       const computedStyle = window.getComputedStyle(node);
-      const fontFamilyValue = computedStyle.fontFamily || '';
-      return fontFamilyValue.toLowerCase().indexOf('iconfont') >= 0;
+      const fontFamilyValue = computedStyle.fontFamily || "";
+      return fontFamilyValue.toLowerCase().indexOf("iconfont") >= 0;
     }
     return false;
   }
   function isTextElement(node) {
-    return node.nodeName.toLowerCase() === '#text' && !isIconfont(node);
+    return node.nodeName.toLowerCase() === "#text" && !isIconfont(node);
   }
   function isContainerElement(node) {
     if (!(node instanceof HTMLElement)) return false;
@@ -991,7 +991,7 @@ ${indentStr}${after}`;
       return false;
     }
     const computedStyle = window.getComputedStyle(node);
-    const backgroundColor = computedStyle.getPropertyValue('background-color');
+    const backgroundColor = computedStyle.getPropertyValue("background-color");
     if (backgroundColor) {
       return true;
     }
@@ -1003,13 +1003,13 @@ ${indentStr}${after}`;
       return true;
     }
     const includeList = [
-      'svg',
-      'button',
-      'input',
-      'textarea',
-      'select',
-      'option',
-      'img',
+      "svg",
+      "button",
+      "input",
+      "textarea",
+      "select",
+      "option",
+      "img",
     ];
     for (const tagName of includeList) {
       const element = node.querySelectorAll(tagName);
@@ -1023,22 +1023,22 @@ ${indentStr}${after}`;
   // src/utils.ts
   var import_js_sha256 = __toESM(require_sha256());
   var hashMap = {};
-  function generateHashId(rect, content = '') {
+  function generateHashId(rect, content = "") {
     const combined = JSON.stringify({
       content,
       rect,
     });
     let sliceLength = 5;
-    let slicedHash = '';
+    let slicedHash = "";
     const hashHex = import_js_sha256.sha256.create().update(combined).hex();
     const toLetters = (hex) => {
       return hex
-        .split('')
+        .split("")
         .map((char) => {
           const code = Number.parseInt(char, 16);
           return String.fromCharCode(97 + (code % 26));
         })
-        .join('');
+        .join("");
     };
     const hashLetters = toLetters(hashHex);
     while (sliceLength < hashLetters.length - 1) {
@@ -1068,18 +1068,18 @@ ${indentStr}${after}`;
     }
     console.log(..._msg);
   }
-  var taskIdKey = '_midscene_retrieve_task_id';
+  var taskIdKey = "_midscene_retrieve_task_id";
   function selectorForValue(val) {
     return `[${taskIdKey}='${val}']`;
   }
   function setDataForNode(node, nodeHash, setToParentNode, currentWindow) {
     const taskId = taskIdKey;
     if (!(node instanceof currentWindow.HTMLElement)) {
-      return '';
+      return "";
     }
     if (!taskId) {
-      console.error('No task id found');
-      return '';
+      console.error("No task id found");
+      return "";
     }
     const selector = selectorForValue(nodeHash);
     if (getDebugMode()) {
@@ -1123,17 +1123,17 @@ ${indentStr}${after}`;
   }
   function getPseudoElementContent(element, currentWindow) {
     if (!(element instanceof currentWindow.HTMLElement)) {
-      return { before: '', after: '' };
+      return { before: "", after: "" };
     }
     const beforeContent = currentWindow
-      .getComputedStyle(element, '::before')
-      .getPropertyValue('content');
+      .getComputedStyle(element, "::before")
+      .getPropertyValue("content");
     const afterContent = currentWindow
-      .getComputedStyle(element, '::after')
-      .getPropertyValue('content');
+      .getComputedStyle(element, "::after")
+      .getPropertyValue("content");
     return {
-      before: beforeContent === 'none' ? '' : beforeContent.replace(/"/g, ''),
-      after: afterContent === 'none' ? '' : afterContent.replace(/"/g, ''),
+      before: beforeContent === "none" ? "" : beforeContent.replace(/"/g, ""),
+      after: afterContent === "none" ? "" : afterContent.replace(/"/g, ""),
     };
   }
   function overlappedRect(rect1, rect2) {
@@ -1165,7 +1165,7 @@ ${indentStr}${after}`;
       originalRect = range.getBoundingClientRect();
     } else {
       originalRect = el.getBoundingClientRect();
-      if (!('currentCSSZoom' in el)) {
+      if (!("currentCSSZoom" in el)) {
         newZoom =
           Number.parseFloat(currentWindow.getComputedStyle(el).zoom) || 1;
       }
@@ -1204,7 +1204,7 @@ ${indentStr}${after}`;
     if (!overlapRect) {
       return false;
     }
-    logger(el, 'Element is covered by another element', {
+    logger(el, "Element is covered by another element", {
       topElement,
       el,
       rect,
@@ -1215,31 +1215,31 @@ ${indentStr}${after}`;
   };
   function visibleRect(el, currentWindow, currentDocument, baseZoom = 1) {
     if (!el) {
-      logger(el, 'Element is not in the DOM hierarchy');
+      logger(el, "Element is not in the DOM hierarchy");
       return false;
     }
     if (
       !(el instanceof currentWindow.HTMLElement) &&
       el.nodeType !== Node.TEXT_NODE &&
-      el.nodeName.toLowerCase() !== 'svg'
+      el.nodeName.toLowerCase() !== "svg"
     ) {
-      logger(el, 'Element is not in the DOM hierarchy');
+      logger(el, "Element is not in the DOM hierarchy");
       return false;
     }
     if (el instanceof currentWindow.HTMLElement) {
       const style = currentWindow.getComputedStyle(el);
       if (
-        style.display === 'none' ||
-        style.visibility === 'hidden' ||
-        (style.opacity === '0' && el.tagName !== 'INPUT')
+        style.display === "none" ||
+        style.visibility === "hidden" ||
+        (style.opacity === "0" && el.tagName !== "INPUT")
       ) {
-        logger(el, 'Element is hidden');
+        logger(el, "Element is hidden");
         return false;
       }
     }
     const rect = getRect(el, baseZoom, currentWindow);
     if (rect.width === 0 && rect.height === 0) {
-      logger(el, 'Element has no size');
+      logger(el, "Element has no size");
       return false;
     }
     if (baseZoom === 1 && isElementCovered(el, rect, currentWindow)) {
@@ -1256,10 +1256,10 @@ ${indentStr}${after}`;
     const isPartiallyInViewport = isElementPartiallyInViewport(
       rect,
       currentWindow,
-      currentDocument
+      currentDocument,
     );
     if (!isPartiallyInViewport) {
-      logger(el, 'Element is completely outside the viewport', {
+      logger(el, "Element is completely outside the viewport", {
         rect,
         viewportHeight,
         viewportWidth,
@@ -1273,7 +1273,7 @@ ${indentStr}${after}`;
       let parent2 = currentNode == null ? void 0 : currentNode.parentElement;
       while (parent2) {
         const style = currentWindow.getComputedStyle(parent2);
-        if (style.position !== 'static') {
+        if (style.position !== "static") {
           return parent2;
         }
         parent2 = parent2.parentElement;
@@ -1286,7 +1286,7 @@ ${indentStr}${after}`;
         continue;
       }
       const parentStyle = currentWindow.getComputedStyle(parent);
-      if (parentStyle.overflow === 'hidden') {
+      if (parentStyle.overflow === "hidden") {
         const parentRect = getRect(parent, 1, currentWindow);
         const tolerance = 10;
         if (
@@ -1295,7 +1295,7 @@ ${indentStr}${after}`;
           rect.bottom < parentRect.top - tolerance ||
           rect.top > parentRect.bottom + tolerance
         ) {
-          logger(el, 'element is partially or totally hidden by an ancestor', {
+          logger(el, "element is partially or totally hidden by an ancestor", {
             rect,
             parentRect,
           });
@@ -1303,12 +1303,12 @@ ${indentStr}${after}`;
         }
       }
       if (
-        parentStyle.position === 'fixed' ||
-        parentStyle.position === 'sticky'
+        parentStyle.position === "fixed" ||
+        parentStyle.position === "sticky"
       ) {
         break;
       }
-      if (parentStyle.position === 'absolute') {
+      if (parentStyle.position === "absolute") {
         parent = parentUntilNonStatic(parent);
       } else {
         parent = parent.parentElement;
@@ -1331,15 +1331,15 @@ ${indentStr}${after}`;
       return {};
     }
     const attributesList = Array.from(node.attributes).map((attr) => {
-      if (attr.name === 'class') {
-        return [attr.name, `.${attr.value.split(' ').join('.')}`];
+      if (attr.name === "class") {
+        return [attr.name, `.${attr.value.split(" ").join(".")}`];
       }
       if (!attr.value) {
         return [];
       }
       let value = attr.value;
-      if (value.startsWith('data:image')) {
-        value = 'image';
+      if (value.startsWith("data:image")) {
+        value = "image";
       }
       if (value.length > MAX_VALUE_LENGTH) {
         value = `${value.slice(0, MAX_VALUE_LENGTH)}...`;
@@ -1360,7 +1360,7 @@ ${indentStr}${after}`;
   // src/extractor/web-extractor.ts
   var indexId = 0;
   function tagNameOfNode(node) {
-    let tagName = '';
+    let tagName = "";
     if (node instanceof HTMLElement) {
       tagName = node.tagName.toLowerCase();
     }
@@ -1368,14 +1368,14 @@ ${indentStr}${after}`;
     if (parentElement && parentElement instanceof HTMLElement) {
       tagName = parentElement.tagName.toLowerCase();
     }
-    return tagName ? `<${tagName}>` : '';
+    return tagName ? `<${tagName}>` : "";
   }
   function collectElementInfo(
     node,
     currentWindow,
     currentDocument,
     baseZoom = 1,
-    basePoint = { left: 0, top: 0 }
+    basePoint = { left: 0, top: 0 },
   ) {
     var _a;
     const rect = visibleRect(node, currentWindow, currentDocument, baseZoom);
@@ -1396,17 +1396,17 @@ ${indentStr}${after}`;
     if (isFormElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
       let valueContent =
-        attributes.value || attributes.placeholder || node.textContent || '';
+        attributes.value || attributes.placeholder || node.textContent || "";
       const nodeHashId = midsceneGenerateHash(node, valueContent, rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const tagName = node.tagName.toLowerCase();
-      if (node.tagName.toLowerCase() === 'select') {
+      if (node.tagName.toLowerCase() === "select") {
         const selectedOption = node.options[node.selectedIndex];
-        valueContent = selectedOption.textContent || '';
+        valueContent = selectedOption.textContent || "";
       }
       if (
-        (node.tagName.toLowerCase() === 'input' ||
-          node.tagName.toLowerCase() === 'textarea') &&
+        (node.tagName.toLowerCase() === "input" ||
+          node.tagName.toLowerCase() === "textarea") &&
         node.value
       ) {
         valueContent = node.value;
@@ -1415,11 +1415,11 @@ ${indentStr}${after}`;
         id: nodeHashId,
         nodeHashId,
         locator: selector,
-        nodeType: 'FORM_ITEM Node' /* FORM_ITEM */,
+        nodeType: "FORM_ITEM Node" /* FORM_ITEM */,
         indexId: indexId++,
         attributes: __spreadProps(__spreadValues({}, attributes), {
           htmlTagName: `<${tagName}>`,
-          nodeType: 'FORM_ITEM Node' /* FORM_ITEM */,
+          nodeType: "FORM_ITEM Node" /* FORM_ITEM */,
         }),
         content: valueContent.trim(),
         rect,
@@ -1436,18 +1436,18 @@ ${indentStr}${after}`;
     if (isButtonElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
       const pseudo = getPseudoElementContent(node, currentWindow);
-      const content = node.innerText || pseudo.before || pseudo.after || '';
+      const content = node.innerText || pseudo.before || pseudo.after || "";
       const nodeHashId = midsceneGenerateHash(node, content, rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const elementInfo = {
         id: nodeHashId,
         indexId: indexId++,
         nodeHashId,
-        nodeType: 'BUTTON Node' /* BUTTON */,
+        nodeType: "BUTTON Node" /* BUTTON */,
         locator: selector,
         attributes: __spreadProps(__spreadValues({}, attributes), {
           htmlTagName: tagNameOfNode(node),
-          nodeType: 'BUTTON Node' /* BUTTON */,
+          nodeType: "BUTTON Node" /* BUTTON */,
         }),
         content,
         rect,
@@ -1463,7 +1463,7 @@ ${indentStr}${after}`;
     }
     if (isImgElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
-      const nodeHashId = midsceneGenerateHash(node, '', rect);
+      const nodeHashId = midsceneGenerateHash(node, "", rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const elementInfo = {
         id: nodeHashId,
@@ -1473,19 +1473,19 @@ ${indentStr}${after}`;
         attributes: __spreadProps(
           __spreadValues(
             __spreadValues({}, attributes),
-            node.nodeName.toLowerCase() === 'svg'
+            node.nodeName.toLowerCase() === "svg"
               ? {
-                  svgContent: 'true',
+                  svgContent: "true",
                 }
-              : {}
+              : {},
           ),
           {
-            nodeType: 'IMG Node' /* IMG */,
+            nodeType: "IMG Node" /* IMG */,
             htmlTagName: tagNameOfNode(node),
-          }
+          },
         ),
-        nodeType: 'IMG Node' /* IMG */,
-        content: '',
+        nodeType: "IMG Node" /* IMG */,
+        content: "",
         rect,
         center: [
           Math.round(rect.left + rect.width / 2),
@@ -1501,7 +1501,7 @@ ${indentStr}${after}`;
       const text =
         (_a = node.textContent) == null
           ? void 0
-          : _a.trim().replace(/\n+/g, ' ');
+          : _a.trim().replace(/\n+/g, " ");
       if (!text) {
         return null;
       }
@@ -1516,10 +1516,10 @@ ${indentStr}${after}`;
         id: nodeHashId,
         indexId: indexId++,
         nodeHashId,
-        nodeType: 'TEXT Node' /* TEXT */,
+        nodeType: "TEXT Node" /* TEXT */,
         locator: selector,
         attributes: __spreadProps(__spreadValues({}, attributes), {
-          nodeType: 'TEXT Node' /* TEXT */,
+          nodeType: "TEXT Node" /* TEXT */,
           htmlTagName: tagNameOfNode(node),
         }),
         center: [
@@ -1537,19 +1537,19 @@ ${indentStr}${after}`;
     }
     if (isContainerElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
-      const nodeHashId = midsceneGenerateHash(node, '', rect);
+      const nodeHashId = midsceneGenerateHash(node, "", rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const elementInfo = {
         id: nodeHashId,
         nodeHashId,
         indexId: indexId++,
-        nodeType: 'CONTAINER Node' /* CONTAINER */,
+        nodeType: "CONTAINER Node" /* CONTAINER */,
         locator: selector,
         attributes: __spreadProps(__spreadValues({}, attributes), {
-          nodeType: 'CONTAINER Node' /* CONTAINER */,
+          nodeType: "CONTAINER Node" /* CONTAINER */,
           htmlTagName: tagNameOfNode(node),
         }),
-        content: '',
+        content: "",
         rect,
         center: [
           Math.round(rect.left + rect.width / 2),
@@ -1592,7 +1592,7 @@ ${indentStr}${after}`;
       currentWindow,
       currentDocument,
       baseZoom = 1,
-      basePoint = { left: 0, top: 0 }
+      basePoint = { left: 0, top: 0 },
     ) {
       if (!node) {
         return null;
@@ -1605,7 +1605,7 @@ ${indentStr}${after}`;
         currentWindow,
         currentDocument,
         baseZoom,
-        basePoint
+        basePoint,
       );
       if (node instanceof currentWindow.HTMLIFrameElement) {
         if (node.contentWindow && node.contentWindow) {
@@ -1618,27 +1618,27 @@ ${indentStr}${after}`;
       };
       if (
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          'BUTTON Node' /* BUTTON */ ||
+          "BUTTON Node" /* BUTTON */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          'IMG Node' /* IMG */ ||
+          "IMG Node" /* IMG */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          'TEXT Node' /* TEXT */ ||
+          "TEXT Node" /* TEXT */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          'FORM_ITEM Node' /* FORM_ITEM */ ||
+          "FORM_ITEM Node" /* FORM_ITEM */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          'CONTAINER Node' /* CONTAINER */
+          "CONTAINER Node" /* CONTAINER */
       ) {
         return nodeInfo;
       }
       const rect = getRect(node, baseZoom, currentWindow);
       for (let i = 0; i < node.childNodes.length; i++) {
-        logger('will dfs', node.childNodes[i]);
+        logger("will dfs", node.childNodes[i]);
         const childNodeInfo = dfs(
           node.childNodes[i],
           currentWindow,
           currentDocument,
           rect.zoom,
-          basePoint
+          basePoint,
         );
         if (childNodeInfo) {
           nodeInfo.children.push(childNodeInfo);
@@ -1654,7 +1654,7 @@ ${indentStr}${after}`;
       topChildren.push(rootNodeInfo);
     }
     if (startNode === topDocument) {
-      const iframes = document.querySelectorAll('iframe');
+      const iframes = document.querySelectorAll("iframe");
       for (let i = 0; i < iframes.length; i++) {
         const iframe = iframes[i];
         if (iframe.contentDocument && iframe.contentWindow) {
@@ -1668,7 +1668,7 @@ ${indentStr}${after}`;
               {
                 left: iframeInfo.rect.left,
                 top: iframeInfo.rect.top,
-              }
+              },
             );
             if (iframeChildren) {
               topChildren.push(iframeChildren);
@@ -1691,7 +1691,7 @@ ${indentStr}${after}`;
       const element = node;
       for (let i = 0; i < element.attributes.length; i++) {
         const attr = element.attributes[i];
-        attrs[attr.nodeName] = (_a = attr.nodeValue) != null ? _a : '';
+        attrs[attr.nodeName] = (_a = attr.nodeValue) != null ? _a : "";
       }
     }
     return attrs;
@@ -1699,16 +1699,16 @@ ${indentStr}${after}`;
   function getRect2(attributes) {
     var _a, _b, _c, _d;
     const x = Math.round(
-      Number.parseFloat((_a = attributes.x) != null ? _a : '0')
+      Number.parseFloat((_a = attributes.x) != null ? _a : "0"),
     );
     const y = Math.round(
-      Number.parseFloat((_b = attributes.y) != null ? _b : '0')
+      Number.parseFloat((_b = attributes.y) != null ? _b : "0"),
     );
     const width = Math.round(
-      Number.parseFloat((_c = attributes.width) != null ? _c : '0')
+      Number.parseFloat((_c = attributes.width) != null ? _c : "0"),
     );
     const height = Math.round(
-      Number.parseFloat((_d = attributes.height) != null ? _d : '0')
+      Number.parseFloat((_d = attributes.height) != null ? _d : "0"),
     );
     return {
       left: Math.max(0, Math.floor(x)),
@@ -1720,13 +1720,13 @@ ${indentStr}${after}`;
   function validTextNodeContent(node) {
     var _a;
     if (node.nodeType === 3) {
-      return ((_a = node.nodeValue) == null ? void 0 : _a.trim()) || '';
+      return ((_a = node.nodeValue) == null ? void 0 : _a.trim()) || "";
     }
-    return '';
+    return "";
   }
   function getXPathForElement(element) {
     if (element.nodeType !== 1) {
-      return '';
+      return "";
     }
     const getIndex = (sib, name) => {
       let count = 1;
@@ -1738,18 +1738,18 @@ ${indentStr}${after}`;
       return count;
     };
     const buildAttributePart = (elem) => {
-      const attributes = ['id', 'resource-id', 'content-desc', 'class'];
+      const attributes = ["id", "resource-id", "content-desc", "class"];
       for (const attr of attributes) {
         if (elem.hasAttribute(attr)) {
           const value = elem.getAttribute(attr);
-          if (value && value.trim() !== '') {
+          if (value && value.trim() !== "") {
             return `[@${attr}="${value}"]`;
           }
         }
       }
-      return '';
+      return "";
     };
-    const getPath = (node, path = '') => {
+    const getPath = (node, path = "") => {
       if (node.parentNode) {
         path = getPath(node.parentNode, path);
       }
@@ -1796,38 +1796,38 @@ ${indentStr}${after}`;
       const nodeHashId = midsceneGenerateHash(
         null,
         attributes.placeholder,
-        rect
+        rect,
       );
       const text = validTextNodeContent(node);
       let nodeType;
       switch (node.nodeName.toUpperCase()) {
-        case 'TEXT':
-          nodeType = 'TEXT Node' /* TEXT */;
+        case "TEXT":
+          nodeType = "TEXT Node" /* TEXT */;
           break;
-        case 'IMAGE':
-          nodeType = 'IMG Node' /* IMG */;
+        case "IMAGE":
+          nodeType = "IMG Node" /* IMG */;
           break;
-        case 'BUTTON':
-          nodeType = 'BUTTON Node' /* BUTTON */;
+        case "BUTTON":
+          nodeType = "BUTTON Node" /* BUTTON */;
           break;
-        case 'SEARCHINPUT':
-        case 'TEXTINPUT':
-        case 'INPUT':
-          nodeType = 'FORM_ITEM Node' /* FORM_ITEM */;
+        case "SEARCHINPUT":
+        case "TEXTINPUT":
+        case "INPUT":
+          nodeType = "FORM_ITEM Node" /* FORM_ITEM */;
           break;
-        case 'NAV':
-        case 'LIST':
-        case 'CELL':
-          nodeType = 'CONTAINER Node' /* CONTAINER */;
+        case "NAV":
+        case "LIST":
+        case "CELL":
+          nodeType = "CONTAINER Node" /* CONTAINER */;
           break;
         default:
           if (
-            attributes.id === 'android:id/input' ||
-            attributes.id === 'android:id/inputArea'
+            attributes.id === "android:id/input" ||
+            attributes.id === "android:id/inputArea"
           ) {
-            nodeType = 'FORM_ITEM Node' /* FORM_ITEM */;
+            nodeType = "FORM_ITEM Node" /* FORM_ITEM */;
           } else {
-            nodeType = 'CONTAINER Node' /* CONTAINER */;
+            nodeType = "CONTAINER Node" /* CONTAINER */;
           }
           break;
       }
@@ -1841,7 +1841,7 @@ ${indentStr}${after}`;
           {
             nodeType,
           },
-          attributes
+          attributes,
         ),
         content: text,
         rect,
@@ -1851,7 +1851,7 @@ ${indentStr}${after}`;
         ],
         nodeType,
       };
-      if (elementInfo.nodeType !== 'CONTAINER Node' /* CONTAINER */) {
+      if (elementInfo.nodeType !== "CONTAINER Node" /* CONTAINER */) {
         elementInfoArray.push(elementInfo);
       }
     }

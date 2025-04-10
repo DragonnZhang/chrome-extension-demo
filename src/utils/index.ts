@@ -23,7 +23,7 @@ export const checkServerStatus = async () => {
 export const requestPlaygroundServer = async (
   context: UIContext,
   type: string,
-  prompt: string
+  prompt: string,
 ) => {
   const res = await fetch(`${serverBase}/execute`, {
     method: 'POST',
