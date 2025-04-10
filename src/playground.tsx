@@ -11,11 +11,11 @@ import {
 import { Button, Form, Progress, message } from 'antd';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import './style.css';
 import { ReadOutlined } from '@ant-design/icons';
 import MagicButton from './components/MagicButton';
 import { PromptInput } from './components/PromptInput';
 import usePage from './hooks/usePage';
+import './style.css';
 
 export interface PlaygroundProps {
   getAgent: (forceSameTabNavigation?: boolean) => any | null;
@@ -77,7 +77,7 @@ export function BrowserExtensionPlayground({
   const [form] = Form.useForm();
   const { config } = useEnvConfig();
   const forceSameTabNavigation = useEnvConfig(
-    (state) => state.forceSameTabNavigation,
+    (state) => state.forceSameTabNavigation
   );
 
   // References
@@ -275,9 +275,9 @@ export function BrowserExtensionPlayground({
             <EnvConfig />
           </div>
 
-          <div className="bg-sky-50 mb-4 rounded-lg px-4 py-3 shadow-sm">
-            <div className="flex justify-between items-center mb-1">
-              <span className="text-gray-600 font-medium">
+          <div className="mb-4 rounded-lg bg-sky-50 px-4 py-3 shadow-sm">
+            <div className="mb-1 flex items-center justify-between">
+              <span className="font-medium text-gray-600">
                 <ReadOutlined className="mr-2" />
                 视口信息
               </span>
@@ -298,7 +298,7 @@ export function BrowserExtensionPlayground({
           </div>
 
           <Button
-            className="w-[90%] h-6 mx-[5%] mt-2 mb-4 relative"
+            className="relative mx-[5%] mt-2 mb-4 h-6 w-[90%]"
             onClick={() => handleQuery('总结这个网页')}
             type="primary"
             size="large"
@@ -319,11 +319,11 @@ export function BrowserExtensionPlayground({
                 : 'translateY(-10px)',
             }}
           >
-            <div className="text-center mb-2 mt-1 text-gray-500">
+            <div className="mt-1 mb-2 text-center text-gray-500">
               <small>👇 AI 为您预测的常用操作</small>
             </div>
             <MagicButton
-              className="w-[90%] h-4 mx-[5%] my-2 relative"
+              className="relative mx-[5%] my-2 h-4 w-[90%]"
               onClick={() => handleQuery('朗读这个网页内容')}
               type="primary"
               size="large"
@@ -331,7 +331,7 @@ export function BrowserExtensionPlayground({
               朗读全文
             </MagicButton>
             <MagicButton
-              className="w-[90%] h-4 mx-[5%] mt-2 mb-4 relative"
+              className="relative mx-[5%] mt-2 mb-4 h-4 w-[90%]"
               onClick={() => handleQuery('提取网页中的关键信息')}
               type="primary"
               size="large"

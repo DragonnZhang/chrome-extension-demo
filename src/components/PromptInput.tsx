@@ -5,10 +5,9 @@ import {
   SendOutlined,
 } from '@ant-design/icons';
 import { Button, Form, Input, Radio, Tooltip } from 'antd';
-import { useCallback, useEffect, useState } from 'react';
 import type React from 'react';
-import type { RunType } from './playground-types';
-import type { ServiceModeType } from './playground-types';
+import { useCallback, useEffect, useState } from 'react';
+import type { RunType, ServiceModeType } from './playground-types';
 import { actionNameForType, getPlaceholderForType } from './playground-utils';
 
 const { TextArea } = Input;
@@ -61,7 +60,7 @@ export const PromptInput: React.FC<PromptInputProps> = ({
         e.stopPropagation();
       }
     },
-    [handleRunWithHistory],
+    [handleRunWithHistory]
   );
 
   // Handle settings hover state
@@ -128,7 +127,7 @@ export const PromptInput: React.FC<PromptInputProps> = ({
           </Radio.Button>
         </Radio.Group>
         <Button
-          className="left-36 relative"
+          className="relative left-36"
           onClick={() => {
             if (isPaused) {
               chrome.tts.resume();

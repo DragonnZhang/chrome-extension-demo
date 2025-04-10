@@ -29,7 +29,7 @@ const usePage = () => {
                 document.body.offsetHeight,
                 document.documentElement.clientHeight,
                 document.documentElement.scrollHeight,
-                document.documentElement.offsetHeight,
+                document.documentElement.offsetHeight
               );
             };
 
@@ -61,13 +61,13 @@ const usePage = () => {
             // 计算总页数（向上取整，确保最后一页也被计算在内）
             const total = Math.max(
               1,
-              Math.ceil(documentHeight / viewportHeight),
+              Math.ceil(documentHeight / viewportHeight)
             );
 
             // 计算当前页数（基于滚动距离）
             const current = Math.min(
               Math.max(1, Math.floor(scrollTop / viewportHeight) + 1),
-              total,
+              total
             );
 
             return {
