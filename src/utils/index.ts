@@ -64,12 +64,12 @@ export const formatErrorMessage = (e: any): string => {
 // Get placeholder text based on run type
 export const getPlaceholderForType = (type: string): string => {
   if (type === 'aiQuery') {
-    return 'What do you want to query?';
+    return '您想查询什么？';
   }
   if (type === 'aiAssert') {
-    return 'What do you want to assert?';
+    return '您想验证什么？';
   }
-  return 'What do you want to do?';
+  return '您想执行什么操作？';
 };
 
 // Blank result template

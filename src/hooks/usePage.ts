@@ -74,12 +74,10 @@ const usePage = () => {
 
         if (results?.[0]?.result) {
           const { current, total } = results[0].result;
-          console.log('获取到页面信息:', results[0].result);
           setCurrentPage(current);
           setTotalPages(Math.max(1, total));
         }
       } catch (error) {
-        console.error('获取页面信息失败:', error);
         setCurrentPage(1);
         setTotalPages(1);
       }

@@ -118,26 +118,28 @@ export const PromptInput: React.FC<PromptInputProps> = ({
   return (
     <div className="form-part input-wrapper">
       <Form.Item name="type">
-        <Radio.Group buttonStyle="solid" disabled={!runButtonEnabled}>
-          <Radio.Button value="aiAction">
-            {actionNameForType('aiAction')}
-          </Radio.Button>
-          <Radio.Button value="aiQuery">
-            {actionNameForType('aiQuery')}
-          </Radio.Button>
-        </Radio.Group>
-        <Button
-          className="relative left-36"
-          onClick={() => {
-            if (isPaused) {
-              chrome.tts.resume();
-            } else {
-              chrome.tts.pause();
-            }
-            setIsPaused(!isPaused);
-          }}
-          icon={isPaused ? <PlayCircleOutlined /> : <PauseCircleOutlined />}
-        />
+        <div className="flex justify-between items-center">
+          <Radio.Group buttonStyle="solid" disabled={!runButtonEnabled}>
+            <Radio.Button value="aiAction">
+              {actionNameForType('aiAction')}
+            </Radio.Button>
+            <Radio.Button value="aiQuery">
+              {actionNameForType('aiQuery')}
+            </Radio.Button>
+          </Radio.Group>
+          <Button
+            className="relative"
+            onClick={() => {
+              if (isPaused) {
+                chrome.tts.resume();
+              } else {
+                chrome.tts.pause();
+              }
+              setIsPaused(!isPaused);
+            }}
+            icon={isPaused ? <PlayCircleOutlined /> : <PauseCircleOutlined />}
+          />
+        </div>
       </Form.Item>
       <div className="main-side-console-input">
         <Form.Item name="prompt">
