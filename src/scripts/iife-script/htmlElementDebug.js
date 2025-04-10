@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var midscene_element_inspector = (() => {
   var __create = Object.create;
   var __defProp = Object.defineProperty;
@@ -41,7 +41,7 @@ var midscene_element_inspector = (() => {
       );
     };
   var __copyProps = (to, from, except, desc) => {
-    if ((from && typeof from === "object") || typeof from === "function") {
+    if ((from && typeof from === 'object') || typeof from === 'function') {
       for (let key of __getOwnPropNames(from))
         if (!__hasOwnProp.call(to, key) && key !== except)
           __defProp(to, key, {
@@ -60,7 +60,7 @@ var midscene_element_inspector = (() => {
       // compatible transform (i.e. "__esModule" has not been set), then set
       // "default" to the CommonJS "module.exports" for node compatibility.
       isNodeMode || !mod || !mod.__esModule
-        ? __defProp(target, "default", { value: mod, enumerable: true })
+        ? __defProp(target, 'default', { value: mod, enumerable: true })
         : target,
       mod,
     )
@@ -68,31 +68,31 @@ var midscene_element_inspector = (() => {
 
   // resolve-false:/empty-stub
   var require_empty_stub = __commonJS({
-    "resolve-false:/empty-stub"(exports, module) {
-      "use strict";
+    'resolve-false:/empty-stub'(exports, module) {
+      'use strict';
       module.exports = {};
     },
   });
 
   // ../../node_modules/.pnpm/js-sha256@0.11.0/node_modules/js-sha256/src/sha256.js
   var require_sha256 = __commonJS({
-    "../../node_modules/.pnpm/js-sha256@0.11.0/node_modules/js-sha256/src/sha256.js"(
+    '../../node_modules/.pnpm/js-sha256@0.11.0/node_modules/js-sha256/src/sha256.js'(
       exports,
       module,
     ) {
-      "use strict";
+      'use strict';
       (function () {
-        "use strict";
-        var ERROR = "input is invalid type";
-        var WINDOW = typeof window === "object";
+        'use strict';
+        var ERROR = 'input is invalid type';
+        var WINDOW = typeof window === 'object';
         var root = WINDOW ? window : {};
         if (root.JS_SHA256_NO_WINDOW) {
           WINDOW = false;
         }
-        var WEB_WORKER = !WINDOW && typeof self === "object";
+        var WEB_WORKER = !WINDOW && typeof self === 'object';
         var NODE_JS =
           !root.JS_SHA256_NO_NODE_JS &&
-          typeof process === "object" &&
+          typeof process === 'object' &&
           process.versions &&
           process.versions.node;
         if (NODE_JS) {
@@ -102,12 +102,12 @@ var midscene_element_inspector = (() => {
         }
         var COMMON_JS =
           !root.JS_SHA256_NO_COMMON_JS &&
-          typeof module === "object" &&
+          typeof module === 'object' &&
           module.exports;
-        var AMD = typeof define === "function" && define.amd;
+        var AMD = typeof define === 'function' && define.amd;
         var ARRAY_BUFFER =
-          !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== "undefined";
-        var HEX_CHARS = "0123456789abcdef".split("");
+          !root.JS_SHA256_NO_ARRAY_BUFFER && typeof ArrayBuffer !== 'undefined';
+        var HEX_CHARS = '0123456789abcdef'.split('');
         var EXTRA = [-2147483648, 8388608, 32768, 128];
         var SHIFT = [24, 16, 8, 0];
         var K = [
@@ -124,11 +124,11 @@ var midscene_element_inspector = (() => {
           1955562222, 2024104815, 2227730452, 2361852424, 2428436474,
           2756734187, 3204031479, 3329325298,
         ];
-        var OUTPUT_TYPES = ["hex", "array", "digest", "arrayBuffer"];
+        var OUTPUT_TYPES = ['hex', 'array', 'digest', 'arrayBuffer'];
         var blocks = [];
         if (root.JS_SHA256_NO_NODE_JS || !Array.isArray) {
           Array.isArray = function (obj) {
-            return Object.prototype.toString.call(obj) === "[object Array]";
+            return Object.prototype.toString.call(obj) === '[object Array]';
           };
         }
         if (
@@ -137,7 +137,7 @@ var midscene_element_inspector = (() => {
         ) {
           ArrayBuffer.isView = function (obj) {
             return (
-              typeof obj === "object" &&
+              typeof obj === 'object' &&
               obj.buffer &&
               obj.buffer.constructor === ArrayBuffer
             );
@@ -149,7 +149,7 @@ var midscene_element_inspector = (() => {
           };
         };
         var createMethod = function (is224) {
-          var method = createOutputMethod("hex", is224);
+          var method = createOutputMethod('hex', is224);
           if (NODE_JS) {
             method = nodeWrap(method, is224);
           }
@@ -168,7 +168,7 @@ var midscene_element_inspector = (() => {
         var nodeWrap = function (method, is224) {
           var crypto = require_empty_stub();
           var Buffer2 = require_empty_stub().Buffer;
-          var algorithm = is224 ? "sha224" : "sha256";
+          var algorithm = is224 ? 'sha224' : 'sha256';
           var bufferFrom;
           if (Buffer2.from && !root.JS_SHA256_NO_BUFFER_FROM) {
             bufferFrom = Buffer2.from;
@@ -178,11 +178,11 @@ var midscene_element_inspector = (() => {
             };
           }
           var nodeMethod = function (message) {
-            if (typeof message === "string") {
+            if (typeof message === 'string') {
               return crypto
                 .createHash(algorithm)
-                .update(message, "utf8")
-                .digest("hex");
+                .update(message, 'utf8')
+                .digest('hex');
             } else {
               if (message === null || message === void 0) {
                 throw new Error(ERROR);
@@ -198,7 +198,7 @@ var midscene_element_inspector = (() => {
               return crypto
                 .createHash(algorithm)
                 .update(bufferFrom(message))
-                .digest("hex");
+                .digest('hex');
             } else {
               return method(message);
             }
@@ -213,7 +213,7 @@ var midscene_element_inspector = (() => {
           };
         };
         var createHmacMethod = function (is224) {
-          var method = createHmacOutputMethod("hex", is224);
+          var method = createHmacOutputMethod('hex', is224);
           method.create = function (key) {
             return new HmacSha256(key, is224);
           };
@@ -280,8 +280,8 @@ var midscene_element_inspector = (() => {
           }
           var notString,
             type = typeof message;
-          if (type !== "string") {
-            if (type === "object") {
+          if (type !== 'string') {
+            if (type === 'object') {
               if (message === null) {
                 throw new Error(ERROR);
               } else if (ARRAY_BUFFER && message.constructor === ArrayBuffer) {
@@ -682,7 +682,7 @@ var midscene_element_inspector = (() => {
         function HmacSha256(key, is224, sharedMemory) {
           var i,
             type = typeof key;
-          if (type === "string") {
+          if (type === 'string') {
             var bytes = [],
               length = key.length,
               index = 0,
@@ -710,7 +710,7 @@ var midscene_element_inspector = (() => {
             }
             key = bytes;
           } else {
-            if (type === "object") {
+            if (type === 'object') {
               if (key === null) {
                 throw new Error(ERROR);
               } else if (ARRAY_BUFFER && key.constructor === ArrayBuffer) {
@@ -780,23 +780,23 @@ var midscene_element_inspector = (() => {
   function isFormElement(node) {
     return (
       node instanceof HTMLElement &&
-      (node.tagName.toLowerCase() === "input" ||
-        node.tagName.toLowerCase() === "textarea" ||
-        node.tagName.toLowerCase() === "select" ||
-        node.tagName.toLowerCase() === "option")
+      (node.tagName.toLowerCase() === 'input' ||
+        node.tagName.toLowerCase() === 'textarea' ||
+        node.tagName.toLowerCase() === 'select' ||
+        node.tagName.toLowerCase() === 'option')
     );
   }
   function isButtonElement(node) {
     return (
-      node instanceof HTMLElement && node.tagName.toLowerCase() === "button"
+      node instanceof HTMLElement && node.tagName.toLowerCase() === 'button'
     );
   }
   function isImgElement(node) {
     if (!includeBaseElement(node) && node instanceof Element) {
       const computedStyle = window.getComputedStyle(node);
       const backgroundImage =
-        computedStyle.getPropertyValue("background-image");
-      if (backgroundImage !== "none") {
+        computedStyle.getPropertyValue('background-image');
+      if (backgroundImage !== 'none') {
         return true;
       }
     }
@@ -804,20 +804,20 @@ var midscene_element_inspector = (() => {
       return true;
     }
     return (
-      (node instanceof HTMLElement && node.tagName.toLowerCase() === "img") ||
-      (node instanceof SVGElement && node.tagName.toLowerCase() === "svg")
+      (node instanceof HTMLElement && node.tagName.toLowerCase() === 'img') ||
+      (node instanceof SVGElement && node.tagName.toLowerCase() === 'svg')
     );
   }
   function isIconfont(node) {
     if (node instanceof Element) {
       const computedStyle = window.getComputedStyle(node);
-      const fontFamilyValue = computedStyle.fontFamily || "";
-      return fontFamilyValue.toLowerCase().indexOf("iconfont") >= 0;
+      const fontFamilyValue = computedStyle.fontFamily || '';
+      return fontFamilyValue.toLowerCase().indexOf('iconfont') >= 0;
     }
     return false;
   }
   function isTextElement(node) {
-    return node.nodeName.toLowerCase() === "#text" && !isIconfont(node);
+    return node.nodeName.toLowerCase() === '#text' && !isIconfont(node);
   }
   function isContainerElement(node) {
     if (!(node instanceof HTMLElement)) return false;
@@ -825,7 +825,7 @@ var midscene_element_inspector = (() => {
       return false;
     }
     const computedStyle = window.getComputedStyle(node);
-    const backgroundColor = computedStyle.getPropertyValue("background-color");
+    const backgroundColor = computedStyle.getPropertyValue('background-color');
     if (backgroundColor) {
       return true;
     }
@@ -837,13 +837,13 @@ var midscene_element_inspector = (() => {
       return true;
     }
     const includeList = [
-      "svg",
-      "button",
-      "input",
-      "textarea",
-      "select",
-      "option",
-      "img",
+      'svg',
+      'button',
+      'input',
+      'textarea',
+      'select',
+      'option',
+      'img',
     ];
     for (const tagName of includeList) {
       const element = node.querySelectorAll(tagName);
@@ -857,22 +857,22 @@ var midscene_element_inspector = (() => {
   // src/utils.ts
   var import_js_sha256 = __toESM(require_sha256());
   var hashMap = {};
-  function generateHashId(rect, content = "") {
+  function generateHashId(rect, content = '') {
     const combined = JSON.stringify({
       content,
       rect,
     });
     let sliceLength = 5;
-    let slicedHash = "";
+    let slicedHash = '';
     const hashHex = import_js_sha256.sha256.create().update(combined).hex();
     const toLetters = (hex) => {
       return hex
-        .split("")
+        .split('')
         .map((char) => {
           const code = Number.parseInt(char, 16);
           return String.fromCharCode(97 + (code % 26));
         })
-        .join("");
+        .join('');
     };
     const hashLetters = toLetters(hashHex);
     while (sliceLength < hashLetters.length - 1) {
@@ -902,18 +902,18 @@ var midscene_element_inspector = (() => {
     }
     console.log(..._msg);
   }
-  var taskIdKey = "_midscene_retrieve_task_id";
+  var taskIdKey = '_midscene_retrieve_task_id';
   function selectorForValue(val) {
     return `[${taskIdKey}='${val}']`;
   }
   function setDataForNode(node, nodeHash, setToParentNode, currentWindow) {
     const taskId = taskIdKey;
     if (!(node instanceof currentWindow.HTMLElement)) {
-      return "";
+      return '';
     }
     if (!taskId) {
-      console.error("No task id found");
-      return "";
+      console.error('No task id found');
+      return '';
     }
     const selector = selectorForValue(nodeHash);
     if (getDebugMode()) {
@@ -957,17 +957,17 @@ var midscene_element_inspector = (() => {
   }
   function getPseudoElementContent(element, currentWindow) {
     if (!(element instanceof currentWindow.HTMLElement)) {
-      return { before: "", after: "" };
+      return { before: '', after: '' };
     }
     const beforeContent = currentWindow
-      .getComputedStyle(element, "::before")
-      .getPropertyValue("content");
+      .getComputedStyle(element, '::before')
+      .getPropertyValue('content');
     const afterContent = currentWindow
-      .getComputedStyle(element, "::after")
-      .getPropertyValue("content");
+      .getComputedStyle(element, '::after')
+      .getPropertyValue('content');
     return {
-      before: beforeContent === "none" ? "" : beforeContent.replace(/"/g, ""),
-      after: afterContent === "none" ? "" : afterContent.replace(/"/g, ""),
+      before: beforeContent === 'none' ? '' : beforeContent.replace(/"/g, ''),
+      after: afterContent === 'none' ? '' : afterContent.replace(/"/g, ''),
     };
   }
   function overlappedRect(rect1, rect2) {
@@ -999,7 +999,7 @@ var midscene_element_inspector = (() => {
       originalRect = range.getBoundingClientRect();
     } else {
       originalRect = el.getBoundingClientRect();
-      if (!("currentCSSZoom" in el)) {
+      if (!('currentCSSZoom' in el)) {
         newZoom =
           Number.parseFloat(currentWindow.getComputedStyle(el).zoom) || 1;
       }
@@ -1038,7 +1038,7 @@ var midscene_element_inspector = (() => {
     if (!overlapRect) {
       return false;
     }
-    logger(el, "Element is covered by another element", {
+    logger(el, 'Element is covered by another element', {
       topElement,
       el,
       rect,
@@ -1049,31 +1049,31 @@ var midscene_element_inspector = (() => {
   };
   function visibleRect(el, currentWindow, currentDocument, baseZoom = 1) {
     if (!el) {
-      logger(el, "Element is not in the DOM hierarchy");
+      logger(el, 'Element is not in the DOM hierarchy');
       return false;
     }
     if (
       !(el instanceof currentWindow.HTMLElement) &&
       el.nodeType !== Node.TEXT_NODE &&
-      el.nodeName.toLowerCase() !== "svg"
+      el.nodeName.toLowerCase() !== 'svg'
     ) {
-      logger(el, "Element is not in the DOM hierarchy");
+      logger(el, 'Element is not in the DOM hierarchy');
       return false;
     }
     if (el instanceof currentWindow.HTMLElement) {
       const style = currentWindow.getComputedStyle(el);
       if (
-        style.display === "none" ||
-        style.visibility === "hidden" ||
-        (style.opacity === "0" && el.tagName !== "INPUT")
+        style.display === 'none' ||
+        style.visibility === 'hidden' ||
+        (style.opacity === '0' && el.tagName !== 'INPUT')
       ) {
-        logger(el, "Element is hidden");
+        logger(el, 'Element is hidden');
         return false;
       }
     }
     const rect = getRect(el, baseZoom, currentWindow);
     if (rect.width === 0 && rect.height === 0) {
-      logger(el, "Element has no size");
+      logger(el, 'Element has no size');
       return false;
     }
     if (baseZoom === 1 && isElementCovered(el, rect, currentWindow)) {
@@ -1093,7 +1093,7 @@ var midscene_element_inspector = (() => {
       currentDocument,
     );
     if (!isPartiallyInViewport) {
-      logger(el, "Element is completely outside the viewport", {
+      logger(el, 'Element is completely outside the viewport', {
         rect,
         viewportHeight,
         viewportWidth,
@@ -1107,7 +1107,7 @@ var midscene_element_inspector = (() => {
       let parent2 = currentNode == null ? void 0 : currentNode.parentElement;
       while (parent2) {
         const style = currentWindow.getComputedStyle(parent2);
-        if (style.position !== "static") {
+        if (style.position !== 'static') {
           return parent2;
         }
         parent2 = parent2.parentElement;
@@ -1120,7 +1120,7 @@ var midscene_element_inspector = (() => {
         continue;
       }
       const parentStyle = currentWindow.getComputedStyle(parent);
-      if (parentStyle.overflow === "hidden") {
+      if (parentStyle.overflow === 'hidden') {
         const parentRect = getRect(parent, 1, currentWindow);
         const tolerance = 10;
         if (
@@ -1129,7 +1129,7 @@ var midscene_element_inspector = (() => {
           rect.bottom < parentRect.top - tolerance ||
           rect.top > parentRect.bottom + tolerance
         ) {
-          logger(el, "element is partially or totally hidden by an ancestor", {
+          logger(el, 'element is partially or totally hidden by an ancestor', {
             rect,
             parentRect,
           });
@@ -1137,12 +1137,12 @@ var midscene_element_inspector = (() => {
         }
       }
       if (
-        parentStyle.position === "fixed" ||
-        parentStyle.position === "sticky"
+        parentStyle.position === 'fixed' ||
+        parentStyle.position === 'sticky'
       ) {
         break;
       }
-      if (parentStyle.position === "absolute") {
+      if (parentStyle.position === 'absolute') {
         parent = parentUntilNonStatic(parent);
       } else {
         parent = parent.parentElement;
@@ -1165,15 +1165,15 @@ var midscene_element_inspector = (() => {
       return {};
     }
     const attributesList = Array.from(node.attributes).map((attr) => {
-      if (attr.name === "class") {
-        return [attr.name, `.${attr.value.split(" ").join(".")}`];
+      if (attr.name === 'class') {
+        return [attr.name, `.${attr.value.split(' ').join('.')}`];
       }
       if (!attr.value) {
         return [];
       }
       let value = attr.value;
-      if (value.startsWith("data:image")) {
-        value = "image";
+      if (value.startsWith('data:image')) {
+        value = 'image';
       }
       if (value.length > MAX_VALUE_LENGTH) {
         value = `${value.slice(0, MAX_VALUE_LENGTH)}...`;
@@ -1187,12 +1187,12 @@ var midscene_element_inspector = (() => {
     return slicedHash;
   }
   function setMidsceneVisibleRectOnWindow() {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       window.midsceneVisibleRect = visibleRect;
     }
   }
   function setExtractTextWithPositionOnWindow() {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       window.extractTextWithPosition = extractTextWithPosition;
     }
   }
@@ -1204,7 +1204,7 @@ var midscene_element_inspector = (() => {
   // src/extractor/web-extractor.ts
   var indexId = 0;
   function tagNameOfNode(node) {
-    let tagName = "";
+    let tagName = '';
     if (node instanceof HTMLElement) {
       tagName = node.tagName.toLowerCase();
     }
@@ -1212,7 +1212,7 @@ var midscene_element_inspector = (() => {
     if (parentElement && parentElement instanceof HTMLElement) {
       tagName = parentElement.tagName.toLowerCase();
     }
-    return tagName ? `<${tagName}>` : "";
+    return tagName ? `<${tagName}>` : '';
   }
   function collectElementInfo(
     node,
@@ -1240,17 +1240,17 @@ var midscene_element_inspector = (() => {
     if (isFormElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
       let valueContent =
-        attributes.value || attributes.placeholder || node.textContent || "";
+        attributes.value || attributes.placeholder || node.textContent || '';
       const nodeHashId = midsceneGenerateHash(node, valueContent, rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const tagName = node.tagName.toLowerCase();
-      if (node.tagName.toLowerCase() === "select") {
+      if (node.tagName.toLowerCase() === 'select') {
         const selectedOption = node.options[node.selectedIndex];
-        valueContent = selectedOption.textContent || "";
+        valueContent = selectedOption.textContent || '';
       }
       if (
-        (node.tagName.toLowerCase() === "input" ||
-          node.tagName.toLowerCase() === "textarea") &&
+        (node.tagName.toLowerCase() === 'input' ||
+          node.tagName.toLowerCase() === 'textarea') &&
         node.value
       ) {
         valueContent = node.value;
@@ -1259,11 +1259,11 @@ var midscene_element_inspector = (() => {
         id: nodeHashId,
         nodeHashId,
         locator: selector,
-        nodeType: "FORM_ITEM Node" /* FORM_ITEM */,
+        nodeType: 'FORM_ITEM Node' /* FORM_ITEM */,
         indexId: indexId++,
         attributes: __spreadProps(__spreadValues({}, attributes), {
           htmlTagName: `<${tagName}>`,
-          nodeType: "FORM_ITEM Node" /* FORM_ITEM */,
+          nodeType: 'FORM_ITEM Node' /* FORM_ITEM */,
         }),
         content: valueContent.trim(),
         rect,
@@ -1280,18 +1280,18 @@ var midscene_element_inspector = (() => {
     if (isButtonElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
       const pseudo = getPseudoElementContent(node, currentWindow);
-      const content = node.innerText || pseudo.before || pseudo.after || "";
+      const content = node.innerText || pseudo.before || pseudo.after || '';
       const nodeHashId = midsceneGenerateHash(node, content, rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const elementInfo = {
         id: nodeHashId,
         indexId: indexId++,
         nodeHashId,
-        nodeType: "BUTTON Node" /* BUTTON */,
+        nodeType: 'BUTTON Node' /* BUTTON */,
         locator: selector,
         attributes: __spreadProps(__spreadValues({}, attributes), {
           htmlTagName: tagNameOfNode(node),
-          nodeType: "BUTTON Node" /* BUTTON */,
+          nodeType: 'BUTTON Node' /* BUTTON */,
         }),
         content,
         rect,
@@ -1307,7 +1307,7 @@ var midscene_element_inspector = (() => {
     }
     if (isImgElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
-      const nodeHashId = midsceneGenerateHash(node, "", rect);
+      const nodeHashId = midsceneGenerateHash(node, '', rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const elementInfo = {
         id: nodeHashId,
@@ -1317,19 +1317,19 @@ var midscene_element_inspector = (() => {
         attributes: __spreadProps(
           __spreadValues(
             __spreadValues({}, attributes),
-            node.nodeName.toLowerCase() === "svg"
+            node.nodeName.toLowerCase() === 'svg'
               ? {
-                  svgContent: "true",
+                  svgContent: 'true',
                 }
               : {},
           ),
           {
-            nodeType: "IMG Node" /* IMG */,
+            nodeType: 'IMG Node' /* IMG */,
             htmlTagName: tagNameOfNode(node),
           },
         ),
-        nodeType: "IMG Node" /* IMG */,
-        content: "",
+        nodeType: 'IMG Node' /* IMG */,
+        content: '',
         rect,
         center: [
           Math.round(rect.left + rect.width / 2),
@@ -1345,7 +1345,7 @@ var midscene_element_inspector = (() => {
       const text =
         (_a = node.textContent) == null
           ? void 0
-          : _a.trim().replace(/\n+/g, " ");
+          : _a.trim().replace(/\n+/g, ' ');
       if (!text) {
         return null;
       }
@@ -1360,10 +1360,10 @@ var midscene_element_inspector = (() => {
         id: nodeHashId,
         indexId: indexId++,
         nodeHashId,
-        nodeType: "TEXT Node" /* TEXT */,
+        nodeType: 'TEXT Node' /* TEXT */,
         locator: selector,
         attributes: __spreadProps(__spreadValues({}, attributes), {
-          nodeType: "TEXT Node" /* TEXT */,
+          nodeType: 'TEXT Node' /* TEXT */,
           htmlTagName: tagNameOfNode(node),
         }),
         center: [
@@ -1381,19 +1381,19 @@ var midscene_element_inspector = (() => {
     }
     if (isContainerElement(node)) {
       const attributes = getNodeAttributes(node, currentWindow);
-      const nodeHashId = midsceneGenerateHash(node, "", rect);
+      const nodeHashId = midsceneGenerateHash(node, '', rect);
       const selector = setDataForNode(node, nodeHashId, false, currentWindow);
       const elementInfo = {
         id: nodeHashId,
         nodeHashId,
         indexId: indexId++,
-        nodeType: "CONTAINER Node" /* CONTAINER */,
+        nodeType: 'CONTAINER Node' /* CONTAINER */,
         locator: selector,
         attributes: __spreadProps(__spreadValues({}, attributes), {
-          nodeType: "CONTAINER Node" /* CONTAINER */,
+          nodeType: 'CONTAINER Node' /* CONTAINER */,
           htmlTagName: tagNameOfNode(node),
         }),
-        content: "",
+        content: '',
         rect,
         center: [
           Math.round(rect.left + rect.width / 2),
@@ -1458,21 +1458,21 @@ var midscene_element_inspector = (() => {
       };
       if (
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          "BUTTON Node" /* BUTTON */ ||
+          'BUTTON Node' /* BUTTON */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          "IMG Node" /* IMG */ ||
+          'IMG Node' /* IMG */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          "TEXT Node" /* TEXT */ ||
+          'TEXT Node' /* TEXT */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          "FORM_ITEM Node" /* FORM_ITEM */ ||
+          'FORM_ITEM Node' /* FORM_ITEM */ ||
         (elementInfo == null ? void 0 : elementInfo.nodeType) ===
-          "CONTAINER Node" /* CONTAINER */
+          'CONTAINER Node' /* CONTAINER */
       ) {
         return nodeInfo;
       }
       const rect = getRect(node, baseZoom, currentWindow);
       for (let i = 0; i < node.childNodes.length; i++) {
-        logger("will dfs", node.childNodes[i]);
+        logger('will dfs', node.childNodes[i]);
         const childNodeInfo = dfs(
           node.childNodes[i],
           currentWindow,
@@ -1494,7 +1494,7 @@ var midscene_element_inspector = (() => {
       topChildren.push(rootNodeInfo);
     }
     if (startNode === topDocument) {
-      const iframes = document.querySelectorAll("iframe");
+      const iframes = document.querySelectorAll('iframe');
       for (let i = 0; i < iframes.length; i++) {
         const iframe = iframes[i];
         if (iframe.contentDocument && iframe.contentWindow) {

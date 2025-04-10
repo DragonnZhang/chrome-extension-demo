@@ -39,7 +39,7 @@ jobs:
         continue-on-error: false
 
       - name: Run Biome
-        run: pnpm biome format --check --files .
+        run: npx biome check . --diagnostic-level=warn --no-errors-on-unmatched
         continue-on-error: false
 
       - name: Check if PR should be blocked

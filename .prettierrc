@@ -3,5 +3,6 @@
     "prettier-plugin-organize-imports",
     "prettier-plugin-tailwindcss"
   ],
-  "tailwindFunctions": ["classNames"]
+  "tailwindFunctions": ["classNames"],
+  "singleQuote": true
 }

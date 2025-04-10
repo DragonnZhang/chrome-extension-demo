@@ -1,3 +1,4 @@
+import { ReadOutlined } from '@ant-design/icons';
 import type { UIContext } from '@midscene/core';
 import { overrideAIConfig } from '@midscene/core/env';
 import {
@@ -10,7 +11,6 @@ import {
 } from '@midscene/visualizer';
 import { Button, Form, Progress, message } from 'antd';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ReadOutlined } from '@ant-design/icons';
 
 import MagicButton from './components/MagicButton';
 import { PromptInput } from './components/PromptInput';
