@@ -30,27 +30,46 @@ const usePage = () => {
               );
             };
 
-            const documentHeight = getDocumentHeight();
+            let documentHeight = getDocumentHeight();
+            let viewportHeight;
+            let scrollTop;
 
-            const viewportHeight =
-              window.innerHeight ||
-              document.documentElement.clientHeight ||
-              document.body.clientHeight;
+            // 检查是否为 Lark Office Wiki 页面
+            const isLarkWiki = window.location.href.includes(
+              'https://bytedance.larkoffice.com/wiki',
+            );
 
-            const scrollTop =
-              window.pageYOffset ||
-              document.documentElement.scrollTop ||
-              document.body.scrollTop ||
-              0;
-
-            console.log('页面信息:', {
-              documentHeight,
-              viewportHeight,
-              scrollTop,
-              windowInnerHeight: window.innerHeight,
-              bodyScrollHeight: document.body.scrollHeight,
-              htmlScrollHeight: document.documentElement.scrollHeight,
-            });
+            if (isLarkWiki) {
+              // 从 bear-web-x-container 元素获取滚动信息
+              const container = document.querySelector('.bear-web-x-container');
+              if (container) {
+                viewportHeight = container.clientHeight;
+                scrollTop = container.scrollTop;
+                documentHeight = container.scrollHeight;
+              } else {
+                // 容错处理：如果找不到指定元素，则使用默认方式
+                viewportHeight =
+                  window.innerHeight ||
+                  document.documentElement.clientHeight ||
+                  document.body.clientHeight;
+                scrollTop =
+                  window.pageYOffset ||
+                  document.documentElement.scrollTop ||
+                  document.body.scrollTop ||
+                  0;
+              }
+            } else {
+              // 使用原来的方式获取滚动信息
+              viewportHeight =
+                window.innerHeight ||
+                document.documentElement.clientHeight ||
+                document.body.clientHeight;
+              scrollTop =
+                window.pageYOffset ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop ||
+                0;
+            }
 
             const total = Math.max(
               1,
@@ -68,6 +87,7 @@ const usePage = () => {
               documentHeight,
               viewportHeight,
               scrollTop,
+              isLarkWiki,
             };
           },
         });
