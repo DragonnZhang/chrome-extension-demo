@@ -118,7 +118,7 @@ export const PromptInput: React.FC<PromptInputProps> = ({
   return (
     <div className="form-part input-wrapper">
       <Form.Item name="type">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Radio.Group buttonStyle="solid" disabled={!runButtonEnabled}>
             <Radio.Button value="aiAction">
               {actionNameForType('aiAction')}

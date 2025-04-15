@@ -15,8 +15,8 @@ import MagicButton from './components/MagicButton';
 import { PromptInput } from './components/PromptInput';
 import { usePage } from './hooks';
 
-import './styles/global.css';
 import { BookOpenText } from 'lucide-react';
+import './styles/global.css';
 
 export interface PlaygroundProps {
   getAgent: (forceSameTabNavigation?: boolean) => any | null;
@@ -297,8 +297,8 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
 
           <div className="mb-4 rounded-lg bg-sky-50 px-4 py-3 shadow-sm">
             <div className="mb-1 flex items-center justify-between">
-              <span className="font-medium text-gray-600 text-base flex items-center gap-2">
-                <BookOpenText className="h-[20px] mt-0.5 text-blue-600" />
+              <span className="flex items-center gap-2 text-base font-medium text-gray-600">
+                <BookOpenText className="mt-0.5 h-[20px] text-blue-600" />
                 <p>视口信息</p>
               </span>
               <span className="text-gray-800">
@@ -319,7 +319,11 @@ const BrowserExtensionPlayground: React.FC<PlaygroundProps> = ({
 
           <Button
             className="relative mx-[5%] mt-2 mb-4 h-6 w-[90%]"
-            onClick={() => handleQuery('介绍一下这是个什么网站，包括标题，以及有哪些可执行的操作')}
+            onClick={() =>
+              handleQuery(
+                '介绍一下这是个什么网站，包括标题，以及有哪些可执行的操作',
+              )
+            }
             type="primary"
             size="large"
             loading={loading && !showNavigationButtons}
